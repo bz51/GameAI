@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>test</title> 
+<body>
+<input type="button" value="test" onclick="_checkRN();" />
+<textarea id="tt">
+String.prototype.replaceAll = function(s1,s2){ 
+return this.replace(new RegExp(s1,"gm"),s2); 
+} 
+    </textarea>
+        <script>
+function _checkRN() 
+{
+	alert();
+    /*  var reg = /[\r\n\S]+/g;
+     var str = document.getElementById("tt").innerHTML;
+     alert(reg.test(str)); */
+	String.prototype.replaceAll = function(s1,s2){ 
+		return this.replace(new RegExp(s1,"gm"),s2); 
+		} 
+     var str = document.getElementById("tt").innerHTML;
+	str=str.replaceAll("\n", "<br/>") 
+	alert(str);
+}
+
+
+</script>
+</body>
+</html>

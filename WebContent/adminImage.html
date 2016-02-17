@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="js/tongji.js"></script>
+<head>
+  <meta charset="utf-8"/>
+  	<title>Game AI - 管理后台</title>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/adminImage.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<!-- 可选的Bootstrap主题文件（一般不使用） -->
+	<script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap-theme.min.css"></script>
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- 导航栏｛ -->	
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<!-- 标题｛ -->
+        	<div class="navbar-header">
+          		<a class="navbar-brand" href="#">后台管理</a>
+        	</div>
+        	<!-- ｝标题 -->
+        	<!-- 导航按钮｛ -->
+        	<div id="navbar" class="collapse navbar-collapse">
+          		<ul class="nav navbar-nav">
+            		<li><a href="adminIndex.html">首页</a></li>
+            		<li><a href="postBlog.html">发博文</a></li>
+            		<li><a href="adminBlog.html">博文管理</a></li>
+            		<li><a href="adminImage.html">图片管理</a></li>
+            		<li class="active"><a href="adminUser.html">用户管理</a></li>
+            		<li><a target="_blank" href="teacherDetail.html">我的简历</a></li>
+         		 </ul>
+        	</div>
+        	<!-- ｝导航按钮 -->
+		</div>
+	</nav>
+    <!-- ｝导航栏 -->	
+	<img src="images/pic1.jpg" style="position:absolute;" id="bigPic" onclick="clickBigPic()">
+	
+ 	<form action="image/imageAction!uploadImage" enctype="multipart/form-data" method="post" id="imageForm" style="margin-top:100px;">
+		<input type="file" value="上传图片" name="files" />
+		<input type="submit" value="上传" />
+	</form>
+	<!-- <table id="imageTable" border="1" width="100%">
+		
+	</table> -->
+	
+	
+	<table class="table table-striped">
+            <!-- <thead>
+              <tr>
+                <th>用户名</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>邮箱</th>
+                <th>简历地址</th>
+                <th>角色</th>
+                <th>操作</th>
+              </tr>
+            </thead> -->
+            <tbody id="imageTable">
+            	<tr>
+            		<td><img width="200px;" src="images/pic1.jpg"/></td>
+            		<td>www.erhuowang.cn</td>
+            		<td>chaibozhou</td>
+            		<td>2015nian </td>
+            	</tr>
+            	<tr>
+            		<td><img width="200px;" src="images/pic1.jpg"/></td>
+            		<td>www.erhuowang.cn</td>
+            		<td>chaibozhou</td>
+            		<td>2015nian </td>
+            	</tr>
+            </tbody>
+          </table>
+	
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title>��ѧ��ʽ�༭��</title> 
+<meta http-equiv="content-type" content="text/html; charset=GBK"/> 
+<link rel="stylesheet" href="formula.css" type="text/css"/>
+<script type="text/javascript" src="formula.js"></script>
+</head> 
+<body onload="var xf=new Formula(); FormulaEditor.init(xf);">
+<div class="center">
+  <br/>
+  <div class="toolbar_wrapper">
+    <div style="z-index:22">
+      <span>
+        <select id="fontsize" name="fontsize" title="�ֺ�">
+          <option value="" selected="selected">�ֺ�</option>
+          <option value="\tiny">5</option>
+          <option value="\small">9</option>
+          <option value="">10</option>
+          <option value="\large">12</option>
+          <option value="\LARGE">18</option>
+          <option value="\huge">20</option>
+        </select>
+      </span>
+      <span>
+      	<select title="��ɫ" onchange="FormulaEditor.insert(this.value, this.value.length-1); this.selectedIndex=0">
+      	  <option selected="selected" value="">��ɫ</option>
+      	  <option value="{\color{red} }" style="color:red">��</option>
+      	  <option value="{\color{green} }" style="color:green">��</option>
+      	  <option value="{\color{blue} }" style="color:blue">6</option>
+      	</select>
+      </span>
+      <span>
+        <select title="����" onchange="FormulaEditor.insert(this.value); this.selectedIndex=0;"> 
+          <option selected="selected" value="">����</option> 
+		  <option value="\sin">sin</option> 
+          <option value="\cos">cos</option> 
+          <option value="\tan">tan</option> 
+          <option value="\csc">csc</option> 
+          <option value="\arcsin">arcsin</option> 
+          <option value="\arccos">arccos</option> 
+          <option value="\arctan">arctan</option> 
+          <option value="\sin^{-1}">sin-1</option> 
+          <option value="\cos^{-1}">cos-1</option> 
+          <option value="\tan^{-1}">tan-1</option> 
+          <option value="\log_{e}">log e</option> 
+          <option value="\log_{10}">log 10</option> 
+	    </select>
+	  </span>
+	</div>
+  </div>
+  <div class="toolbar_wrapper">
+    <div class="toolbar" style="z-index:28">
+      <span class="panel" id="panel14" style="height:26px">
+        <img src="panels/s_item_1.gif" border="0" usemap="#aa" width="75" height="100"/>
+        <map name="aa" id="aa">
+          <area shape="rect" alt="\pm" coords="0,0,25,25" />
+          <area shape="rect" alt="\geq" coords="0,25,25,50" />
+          <area shape="rect" alt="\approx" coords="0,50,25,75" />
+          <area shape="rect" alt="\pi" coords="0,75,25,100" />
+          <area shape="rect" alt="\times" coords="25,0,50,25" />
+          <area shape="rect" alt="\leq" coords="25,25,50,50" />
+          <area shape="rect" alt="\propto" coords="25,50,50,75" />
+          <area shape="rect" alt="\infty" coords="25,75,50,100" />
+          <area shape="rect" alt="\div" coords="50,0,75,25" />
+          <area shape="rect" alt="\neq" coords="50,25,75,50" />
+          <area shape="rect" alt="\surd" coords="50,50,75,75" />
+        </map>
+      </span>
+      <span class="panel" id="panel15" style="height:26px">
+        <img src="panels/s_item_2.gif" border="0" usemap="#bb" width="50" height="125"/>
+        <map name="bb" id="bb">
+          <area shape="rect" alt="\triangle" coords="0,0,25,25" />
+          <area shape="rect" alt="\cong" coords="0,25,25,50" />
+          <area shape="rect" alt="\sim" coords="0,50,25,75" />
+          <area shape="rect" alt="//" coords="0,75,25,100" />
+          <area shape="rect" alt="\perp" coords="0,100,25,125" />
+          <area shape="rect" alt="\odot" coords="25,0,50,25" />
+          <area shape="rect" alt="\stackrel{\frown}{}" coords="25,25,50,50" onclick="FormulaEditor.insert('\\stackrel{\\frown}{AB}',18)"/>
+          <area shape="rect" alt="\angle" coords="25,50,50,75" />
+          <area shape="rect" alt="AB\stackrel{//}{=}CD" coords="25,75,50,100" onclick="FormulaEditor.insert('AB\\stackrel{//}{=}CD',20)"/>
+        </map>
+      </span>
+      <span class="panel" id="panel16" style="height:26px">
+        <img src="panels/s_item_3.gif" border="0" usemap="#cc" width="75" height="75"/>
+        <map name="cc" id="cc">
+          <area shape="rect" alt="x^{n}" coords="0,0,25,25" />
+          <area shape="rect" alt=" x_{n}" coords="0,25,25,50" />
+          <area shape="rect" alt="x_{m}^{n}" coords="0,50,25,75" onclick="FormulaEditor.insert('x_{m}^{n}',4)"/>          
+          <area shape="rect" alt="\frac{b}{a}" coords="25,0,50,25" onclick="FormulaEditor.insert('\\frac{b}{a}',6)"/>
+          <area shape="rect" alt="\sqrt{x}" coords="025,25,50,50" />          
+          <area shape="rect" alt="\sqrt[n]{x}" coords="25,50,50,75" />          
+          <area shape="rect" alt="\sum" coords="50,0,75,25" />
+          <area shape="rect" alt="\sum_{a}^{b}" coords="50,25,75,50" onclick="FormulaEditor.insert('\\sum_{a}^{b}',6)"/>
+          <area shape="rect" alt="\lim_{x \to 0}" coords="50,50,75,75" />
+        </map>
+      </span>
+      <span class="panel" id="panel17" style="height:26px">
+        <img src="panels/s_item_4.gif" border="0" usemap="#dd" width="50" height="125"/>
+        <map name="dd" id="dd">
+          <area shape="rect" alt="\because" coords="0,0,25,25" />
+          <area shape="rect" alt="\therefore" coords="0,25,25,50" />
+          <area shape="rect" alt="\Rightarrow" coords="0,50,25,75" />
+          <area shape="rect" alt="\xrightarrow[a]{b}" coords="0,75,25,100" />
+          <area shape="rect" alt="\rightarrow" coords="0,100,25,125" />          
+          <area shape="rect" alt="\forall" coords="25,0,50,25" />
+          <area shape="rect" alt="\Leftrightarrow" coords="25,25,50,50" />
+          <area shape="rect" alt="\Leftarrow" coords="25,50,50,75" />
+          <area shape="rect" alt="\xleftarrow[a]{b}" coords="25,75,50,100" />
+          <area shape="rect" alt="\leftarrow" coords="25,100,50,125" />
+        </map>
+      </span>
+      <span class="panel" id="panel18" style="height:26px">
+        <img src="panels/s_item_5.gif" border="0" usemap="#ee" width="100" height="125"/>
+        <map name="ee" id="ee">
+          <area shape="rect" alt="\alpha" coords="0,0,25,25" />
+          <area shape="rect" alt="\beta" coords="0,25,25,50" />
+          <area shape="rect" alt="\gamma" coords="0,50,25,75" />
+          <area shape="rect" alt="\phi" coords="0,75,25,100" />
+          <area shape="rect" alt="\theta" coords="0,100,25,125" />          
+          <area shape="rect" alt="\lambda" coords="25,0,50,25" />
+          <area shape="rect" alt="\mu" coords="25,25,50,50" />
+          <area shape="rect" alt="\rho" coords="25,50,50,75" />
+          <area shape="rect" alt="\psi" coords="25,75,50,100" />
+          <area shape="rect" alt="\varepsilon" coords="25,100,50,125" />          
+          <area shape="rect" alt="\Phi" coords="50,0,75,25" />
+          <area shape="rect" alt="\Psi" coords="50,25,75,50" />
+          <area shape="rect" alt="\Omega" coords="50,50,75,75" />
+          <area shape="rect" alt="\omega" coords="50,75,75,100" />          
+          <area shape="rect" alt="\mathbb{N}" coords="75,0,100,25" />
+          <area shape="rect" alt="\mathbb{Z}" coords="75,25,100,50" />
+          <area shape="rect" alt="\mathbb{R}" coords="75,50,100,75" />
+          <area shape="rect" alt="\mathbb{C}" coords="75,75,100,100" />
+        </map>
+      </span>
+      <span class="panel" id="panel19" style="height:26px">
+        <img src="panels/s_item_6.gif" border="0" usemap="#ff" width="50" height="125"/>
+        <map name="ff" id="ff">
+          <area shape="rect" alt="\cap" coords="0,0,25,25" />
+          <area shape="rect" alt="\cup" coords="0,25,25,50" />
+          <area shape="rect" alt="\subseteq" coords="0,50,25,75" />
+          <area shape="rect" alt="\subset" coords="0,75,25,100" />
+          <area shape="rect" alt="\in" coords="0,100,25,125" />          
+          <area shape="rect" alt="\left \{  \right \}" coords="25,0,50,25" />
+          <area shape="rect" alt="\begin{cases}
+x=1 \\
+y=2 
+\end{cases}" coords="25,25,50,50" />
+          <area shape="rect" alt="\supseteq" coords="25,50,50,75" />
+          <area shape="rect" alt="\supset" coords="25,75,50,100" />
+          <area shape="rect" alt="\notin" coords="25,100,50,125" />
+        </map>
+      </span>
+    </div>
+  </div>
+  <form >  
+  <div id="info"><strong>���ڴ˱༭��ʽ</strong></div>
+    <textarea name="formula" id="formula" cols="80" rows="6"></textarea>
+    <br/> <br/>
+	<img id="formulaview" name="formulaview" title="��ȷ�Ϲ�ʽ�Ƿ���ȷ" src="formula.gif"/>
+  </form>  
+</div> 
+<br/>
+<div id="footer">
+  <div>
+    <img src="../../images/gr/an_gr_01.gif" alt="copy" style="cursor:hand;" onclick="save_formula()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="../../images/gr/an_gr_02.gif" alt="cancle" style="cursor:hand;" onclick="hide_formula()"/>
+  </div>
+</div>
+</body> 
+<script type='text/javascript' src="http://click.xxt.cn/click/stat.do?ck=XXT_ID "></script>
+</html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+			
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <constant name="struts.custom.i18n.resources" value="messageResource"/>
+    <constant name="struts.i18n.encoding" value="utf-8"/>
+    <constant name="struts.multipart.maxSize" value="55000000"/>
+    
+	<!-- 父包，用于什么都不写跳转到首页 -->
+    <package name="default" namespace="/" extends="json-default">
+    	<default-action-ref name="index" />
+    	<action name="index">
+    		<interceptor-ref name="defaultStack">  
+    			<param name="exception.logEnabled">true</param>  
+  			</interceptor-ref>  
+        	<!-- result四种：dispatcher、redirect、chain、redirectAction -->
+            <result type="redirectAction">index.html</result>
+        </action>
+    </package>
+
+	<!-- 用户模块 -->
+    <package name="user" namespace="/user" extends="default">
+		<action name="userAction" class="com.ai.user.UserAction">
+		
+			<!-- 登录 -->
+			<result name="login" type="json">
+    			<param name="includeProperties">userEntity.*,reason,result</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		
+			<!-- 查询所有用户信息 -->
+			<result name="getAllUsers" type="json">
+    			<param name="includeProperties">userList.*,reason,result</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		
+			<!-- 新增一个用户 -->
+			<result name="addUser" type="json">
+    			<param name="includeProperties">reason,result</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		
+			<!-- 根据id获取用户信息 -->
+			<result name="getUserInfoById" type="json">
+    			<param name="includeProperties">reason,result,userEntity.*</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		
+			<!-- 修改某一用户的信息 -->
+			<result name="modifyUser" type="json">
+    			<param name="includeProperties">reason,result</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		
+			<!-- 删除一个用户 -->
+			<result name="deleteUser" type="json">
+    			<param name="includeProperties">reason,result</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		
+    		
+		</action>
+    </package>
+
+	<!-- 图片模块 -->
+    <package name="image" namespace="/image" extends="default">
+		<action name="imageAction" class="com.ai.image.ImageAction">
+		
+			<!-- 上传图片 -->
+			<result name="uploadImage" type="redirect">/adminImage.html</result>
+			
+			<!-- 获取所有图片信息 -->
+			<result name="getAllImages" type="json">
+    			<param name="includeProperties">reason,result,imageList.*</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		</action>
+    </package>
+
+	<!-- 博客模块 -->
+    <package name="blog" namespace="/blog" extends="default">
+		<action name="blogAction" class="com.ai.blog.BlogAction">
+		
+			<!-- 发布一篇博客 -->
+			<result name="postBlog" type="json">
+    			<param name="includeProperties">reason,result</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		
+			<!-- 获取博文 -->
+			<result name="getBlog" type="json">
+    			<param name="includeProperties">reason,result,blogList.*</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		
+			<!-- 获取博文 -->
+			<result name="getBlogById"></result>
+    		
+    		
+		</action>
+    </package>
+    
+</struts>
