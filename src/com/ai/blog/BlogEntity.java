@@ -17,6 +17,8 @@ public class BlogEntity {
 	private Timestamp time;
 	private String title;
 	private String description;
+	private int type;//0:简历、1:网协、2:科研需求、3:读书活动、4:新闻、5:hot
+	private int state;//0:没有权限、1:登录可看、2:私密
 	
 	@Id
 	@GeneratedValue
@@ -61,6 +63,18 @@ public class BlogEntity {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
 	}
 	
 	

@@ -23,8 +23,8 @@ public class UploadTools {
 		}  
           
         // 设置上传文件目录  
-//        String uploadPath = Parameter.UploadPath_abs;
-        String uploadPath = ServletActionContext.getServletContext().getRealPath("/upload");
+        String uploadPath = Parameter.UploadPath_abs;
+//        String uploadPath = ServletActionContext.getServletContext().getRealPath("/upload");
         File uploadPathDir  = new File(uploadPath);
         if(!uploadPathDir.exists()){
         	uploadPathDir.mkdirs();

@@ -16,7 +16,7 @@ public class UserEntity {
 	private String mail;
 	private String phone;
 	private String resume;
-	private int role;
+	private int role;//0:老师、1:研究生、2:本科生
 	
 	@Id
 	@GeneratedValue

@@ -1,3 +1,4 @@
+document.write("<script language=javascript src='js/common.js'></script>");
 $(document).ready(function(){
 	
 	//修改用户信息

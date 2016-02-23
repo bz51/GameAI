@@ -23,6 +23,7 @@ public class ImageAction extends ActionSupport implements SessionAware{
     private String username;
     private List<ImageEntity> imageList;
     private Map session;
+    private String pic_id;
 	
     /**
      * 上传图片 
@@ -56,6 +57,19 @@ public class ImageAction extends ActionSupport implements SessionAware{
     	}
     	
     	return "getAllImages";
+    }
+    
+    
+    /**
+     * 删除图片
+     */
+    public String deletePic(){
+    	boolean result = CoreDao.deleteUniqueById_realDelete(Long.parseLong(this.pic_id), "ImageEntity");
+    	if(!result){
+    		this.result = "no";
+    		this.reason = "Hibernate删除异常！";
+    	}
+    	return "deletePic";
     }
     
 	public String getResult() {
@@ -127,6 +141,16 @@ public class ImageAction extends ActionSupport implements SessionAware{
 
 	public void setSession(Map session) {
 		this.session = session;
+	}
+
+
+	public String getPic_id() {
+		return pic_id;
+	}
+
+
+	public void setPic_id(String pic_id) {
+		this.pic_id = pic_id;
 	}
 	
 	

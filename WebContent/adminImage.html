@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<script type="text/javascript" src="js/tongji.js"></script>
 <head>
   <meta charset="utf-8"/>
   	<title>Game AI - 管理后台</title>
@@ -40,12 +39,37 @@
 		</div>
 	</nav>
     <!-- ｝导航栏 -->	
-	<img src="images/pic1.jpg" style="position:absolute;" id="bigPic" onclick="clickBigPic()">
+	<img src="images/pic1.jpg" style="position:fixed;top:100px;left:200px;width:400px;" id="bigPic" onclick="clickBigPic()">
 	
- 	<form action="image/imageAction!uploadImage" enctype="multipart/form-data" method="post" id="imageForm" style="margin-top:100px;">
-		<input type="file" value="上传图片" name="files" />
-		<input type="submit" value="上传" />
+	<!-- <form action="image/imageAction!uploadImage" enctype="multipart/form-data" method="post" id="imageForm" style="margin-top:100px;">
+		<input type="file" value="上传图片" name="files" style="block:none;" id="pic"/>
+		<input type="button" value="选择图片" onclick="clickChoosePic()" class="btn btn-warning" style="margin-left:10px;margin-top:10px;"/>
+		<input type="submit" value="上传"/>
+	</form> -->
+	
+	<form action="image/imageAction!uploadImage" enctype="multipart/form-data" method="post" id="imageForm" style="margin-top:80px;margin-bottom:20px;margin-left:20px;">
+		<table>
+			<tr>
+				<td>
+					<div class="input-append">
+						<input id="photoCover" class="input-large" type="text" style="height:30px;">
+						<a class="btn btn-info" onclick="$('input[id=file]').click();">选择图片</a>
+					</div>
+				</td>
+				<td>
+					<input type="file" value="上传图片" name="files" id="file" style="display:none"/>
+					<input type="button" value="上传" class="btn btn-warning" onclick="clickUploadBtn()"/>
+				</td>
+			</tr>
+		</table>
 	</form>
+	
+<script type="text/javascript">
+$('input[id=lefile]').change(function() {
+$('#photoCover').val($(this).val());
+});
+</script>
+	
 	<!-- <table id="imageTable" border="1" width="100%">
 		
 	</table> -->
@@ -64,18 +88,19 @@
               </tr>
             </thead> -->
             <tbody id="imageTable">
-            	<tr>
+            	<!-- <tr>
             		<td><img width="200px;" src="images/pic1.jpg"/></td>
             		<td>www.erhuowang.cn</td>
             		<td>chaibozhou</td>
             		<td>2015nian </td>
+            		<td><button onclick="deletePic()">删除</button></td>
             	</tr>
             	<tr>
             		<td><img width="200px;" src="images/pic1.jpg"/></td>
             		<td>www.erhuowang.cn</td>
             		<td>chaibozhou</td>
             		<td>2015nian </td>
-            	</tr>
+            	</tr> -->
             </tbody>
           </table>
 	

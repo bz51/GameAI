@@ -1,5 +1,11 @@
+document.write("<script language=javascript src='js/common.js'></script>");
 $(document).ready(function(){
 	
+	//若从修改简历跳转过来，则将带修改内容显示在textarea中
+	if(localStorage.getItem("modify_content")!=null && localStorage.getItem("modify_content")!=""){
+		alert(localStorage.getItem("modify_content"));
+		CKEDITOR.instances.editor1.setData(localStorage.getItem("modify_content"));//赋值
+	}
 	
 });
 
@@ -17,10 +23,10 @@ function clickFabu(){
 	else{
 		var content = CKEDITOR.instances.editor1.getData();
 		content = content.replaceAll("\n", "<br/>").replace("#", "~~~");
-		alert(content);
-		alert("blog/blogAction!postBlog?description="+CKEDITOR.instances.editor1.document.getBody().getText().substr(0, 15)+"&title="+$("#title").val()+"&content="+content);
+		alert("type="+$("#type").val()+",state="+$("#state").val());
+//		alert("blog/blogAction!postBlog?description="+CKEDITOR.instances.editor1.document.getBody().getText().substr(0, 15)+"&title="+$("#title").val()+"&content="+content);
 //		$.get("blog/blogAction!postBlog?description="+CKEDITOR.instances.editor1.document.getBody().getText().substr(0, 15)+"&title="+$("#title").val()+"&content="+content,
-		$.post("blog/blogAction!postBlog",{description:CKEDITOR.instances.editor1.document.getBody().getText().substr(0, 15),title:$('#title').val(),content:content},
+		$.post("blog/blogAction!postBlog",{description:CKEDITOR.instances.editor1.document.getBody().getText().substr(0, 15),title:$('#title').val(),content:content,type:$("#type").val(),state:$("#state").val()},
 			  
 			  function(data,status){
 //				alert(data);

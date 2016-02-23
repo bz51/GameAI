@@ -1,10 +1,11 @@
+document.write("<script language=javascript src='js/common.js'></script>");
 $(document).ready(function(){
 	
-	//判断是否是超级管理员
-	if(localStorage.getItem("role")!=0){
-		alert("您没有权限访问本页面！");
-		window.location.href="admin.html";
-	}
+//	//判断是否是超级管理员
+//	if(localStorage.getItem("role")!=0){
+//		alert("您没有权限访问本页面！");
+//		window.location.href="admin.html";
+//	}
 	
 	//发送请求
 	$.get("user/userAction!getAllUsers",
@@ -23,9 +24,13 @@ $(document).ready(function(){
 		    	var html;
 //		    	var html = "<tr><th>用户名</th><th>姓名</th><th>年龄</th><th>邮箱</th><th>简历地址</th><th>角色</th><th>操作</th></tr>";
 		    	$.each(json.userList, function(index, val) {
-		    		var role = "普通管理员";
+		    		var role = "教师";
 		    		if(val.role==0)
-		    			role = "超级管理员";
+		    			role = "教师";
+		    		else if(val.role==1)
+		    			role = "研究生";
+		    		else
+		    			role = "本科生";
 		    		
 		    		html = html + '<tr><td>'+val.username+'</td><td>'+val.name+'</td><td>'+val.age+'</td><td>'+val.mail+'</td><td>'+val.resume+'</td><td>'+role+'</td><td><input type="button" onclick="clickModify('+val.id+')" value="修改" /><input type="button" onclick="clickDelete('+val.id+')" value="删除" /></tr>';
 		    		$("#userTable").text("");

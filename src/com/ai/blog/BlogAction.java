@@ -13,6 +13,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class BlogAction extends ActionSupport implements SessionAware{
 	private String content;
 	private String title;
+	private int type;
+	private int state;
 	private String description;
 	private Map session;
 	private String result = "yes";
@@ -20,6 +22,7 @@ public class BlogAction extends ActionSupport implements SessionAware{
 	private List<BlogEntity> blogList;
 	private BlogEntity blogEntity;
 	private String blog_id;
+	private String user_id;
 	
 	/**
 	 * 发布一篇博客
@@ -32,6 +35,8 @@ public class BlogAction extends ActionSupport implements SessionAware{
 		entity.setUser_id((int) session.get("id"));
 		entity.setDescription(description);
 		entity.setTitle(title);
+		entity.setType(type);
+		entity.setState(state);
 		System.out.println(content.replaceAll("~~~", "#"));
 		CoreDao.save(entity);
 		return "postBlog";
@@ -62,6 +67,37 @@ public class BlogAction extends ActionSupport implements SessionAware{
 		this.blogEntity = (BlogEntity) CoreDao.queryListByHql("from BlogEntity where id="+this.blog_id).get(0);
 		
 		return "getBlogById";
+	}
+	
+	
+	/**
+	 * 根据user_id获取个人简历
+	 */
+	public String getResume(){
+		List<BlogEntity> list = CoreDao.queryListByHql("from BlogEntity where user_id="+this.user_id+" and type=0");
+		if(list==null){
+			this.result = "no";
+			this.reason = "Hibernate查询错误";
+			return "getResume";
+		}
+		
+		System.out.println("size="+list.size());
+		this.blogEntity = list.get(0);
+		return "getResume";
+	}
+	
+	
+	
+	/**
+	 * 删除博文
+	 */
+	public String deleteBlog(){
+		boolean result = CoreDao.deleteUniqueById_realDelete(Long.parseLong(this.blog_id), "BlogEntity");
+		if(!result){
+			this.result = "no";
+			this.reason = "Hibernate删除异常！";
+		}
+		return "deleteBlog";
 	}
 
 	public String getContent() {
@@ -135,6 +171,30 @@ public class BlogAction extends ActionSupport implements SessionAware{
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	
 	

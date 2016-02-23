@@ -1,8 +1,8 @@
+document.write("<script language=javascript src='js/common.js'></script>");
 $(document).ready(function(){
 	
-	//判断是否是超级管理员
-//	if(localStorage.getItem("role")!=0){
-//		alert("您没有权限访问本页面！");
+//	if(localStorage.getItem("role")==null){
+//		alert("请登录");
 //		window.location.href="admin.html";
 //	}
 	
@@ -10,5 +10,8 @@ $(document).ready(function(){
 
 
 function clickBtn(url){
+	if(url=="resumeDetail.html"){
+		url = url + "?id="+localStorage.getItem("id");
+	}
 	window.location.href=url;
 }

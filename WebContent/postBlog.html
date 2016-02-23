@@ -46,9 +46,23 @@
 	<div style="margin-top:80px;">
 	<input type="text" id="title" name="title" placeholder="请输入标题" style="width:300px;height:40px;font-size:18px;margin-left:10px;margin-top:10px;margin-bottom:10px;"/>
 	<a href="adminImage.html" target="_blank"class="btn btn-warning" style="margin-left:10px;margin-top:10px;margin-bottom:10px;">图片管理</a>
+	类别：
+	<select id="type">
+		<option value="1">网协</option>
+		<option value="2">科研需求</option>
+		<option value="3">读书活动</option>
+		<option value="4">新闻</option>
+		<option value="5">hot</option>
+	</select>
+	权限：
+	<select id="state">
+		<option value="0">游客可见</option>
+		<option value="1">登录可见</option>
+		<option value="2">私密</option>
+	</select>
 	<form>
-            <textarea name="editor1" id="editor1" rows="10" cols="80">
-                This is my textarea to be replaced with CKEditor.
+            <textarea name="editor1" id="editor1" rows="10" cols="150">
+                
             </textarea>
 
             <div id="content"></div>
@@ -63,12 +77,12 @@
         </form>
 
 
+		<input type="button" value="预览" onclick="clickPost()" class="btn btn-warning" style="margin-left:10px;margin-top:10px;"/>
 		<input type="button" value="发布" onclick="clickFabu()" class="btn btn-primary" style="margin-left:10px;margin-top:10px;"/>
-        <a href="javascript:void()" onclick="clickPost()">发布</a>
    </div>
         <script type="text/javascript">
             function clickPost(){
-                    alert(CKEDITOR.instances.editor1.getData());
+                    //alert(CKEDITOR.instances.editor1.getData());
                     //alert(CKEDITOR.instances.editor1.document.getBody().getText());
                     document.getElementById("content").innerHTML = CKEDITOR.instances.editor1.getData();
                     $('pre code').each(function(i, block) {

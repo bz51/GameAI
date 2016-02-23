@@ -79,6 +79,12 @@
     			<param name="includeProperties">reason,result,imageList.*</param>
     			<param name="contentType">text/html</param> 
     		</result>
+			
+			<!-- 删除图片 -->
+			<result name="deletePic" type="json">
+    			<param name="includeProperties">reason,result</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
 		</action>
     </package>
 
@@ -98,10 +104,20 @@
     			<param name="contentType">text/html</param> 
     		</result>
 		
+			<!-- 根据user_id获取个人简历 -->
+			<result name="getResume" type="json">
+    			<param name="includeProperties">reason,result,blogEntity.*</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		
 			<!-- 获取博文 -->
 			<result name="getBlogById"></result>
     		
-    		
+			<!-- 删除博文 -->
+			<result name="deleteBlog" type="json">
+    			<param name="includeProperties">reason,result</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
 		</action>
     </package>
     
