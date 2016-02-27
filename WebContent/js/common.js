@@ -1,7 +1,7 @@
 //判断是否是超级管理员
 	if(localStorage.getItem("role")==null || localStorage.getItem("role")==""){
-		alert("请登录");
-		window.location.href="admin.html";
+//		alert("请登录");
+//		window.location.href="admin.html";
 	}
 	
 	
@@ -11,12 +11,8 @@
 	 * @param index
 	 */
 	function clickNav(index){
-		//点击“团队”
-		if(index==0){
-			
-		}
 		//点击“科研需求”
-		else if(index==1){
+		if(index==1){
 			localStorage.setItem("type","1");
 			window.location.href="adminBlog.html";
 		}
@@ -41,4 +37,14 @@
 			window.location.href="adminBlog.html";
 		}
 		
+	}
+	
+	
+	/**
+	 * 查看某一个人的简历
+	 */
+	function clickResumeDetail(user_id){
+//		alert("1:"+user_id);
+		localStorage.setItem("look_user_id",user_id);
+		window.location.href="resumeDetail.html";
 	}

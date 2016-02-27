@@ -31,7 +31,7 @@ $(document).ready(function(){
 		    //查询成功
 		    else{
 //		    	alert("content="+json.blogList[0].content);
-		    	document.getElementById("content").innerHTML = json.blogEntity.content;
+		    	document.getElementById("content2").innerHTML = json.blogEntity.content;
 		    	document.getElementById("titile").innerHTML = json.blogEntity.title;
 		    	document.getElementById("name").innerHTML = json.blogEntity.name;
 		    	document.getElementById("time").innerHTML = json.blogEntity.time;
@@ -67,7 +67,7 @@ function GetQueryString(name)
  * 点击“修改简历”
  */
 function modifyResume(){
-	localStorage.setItem("modify_content",$("#content").html());
-	alert($("#content").html());
+	localStorage.setItem("modify_content",$("#content2").html());
+//	alert($("#content").html());
 	window.location.href="postBlog.html";
 }

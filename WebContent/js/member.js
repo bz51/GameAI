@@ -1,3 +1,4 @@
+document.write("<script language=javascript src='js/common.js'></script>");
 $(document).ready(function(){
 	//发送请求
 	$.get("user/userAction!getAllUsers",
@@ -37,11 +38,3 @@ $(document).ready(function(){
 	});
 });
 
-/**
- * 查看某一个人的简历
- */
-function clickResumeDetail(user_id){
-	alert("1:"+user_id);
-	localStorage.setItem("look_user_id",user_id);
-	window.location.href="resumeDetail.html";
-}

@@ -1,0 +1,182 @@
+@CHARSET "UTF-8";
+p{
+	margin-top: 0;
+	font-family: "微软雅黑"
+}
+img{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+body{
+	background-color: #e5e8eb;
+}
+#whole{
+	width: 1000px;
+	height: 3300px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+}
+#header{
+	width: 899px;
+	height: 77px;
+	margin-top: 31px;
+	margin-left: 49px;
+}
+.logo{
+	width: 260px;
+	height: 77px;
+	float: left;
+}
+.title1{
+	width: 74px;
+	height: 43px;
+	float: left;
+	margin-left: 21px;
+	margin-top: 35px;
+	background-image: url("image/title1.jpg");
+}
+.title2{
+	width: 74px;
+	height: 43px;
+	float: left;
+	margin-left: 21px;
+	margin-top: 35px;
+	border-radius: 13px 13px 0 0;
+	background-color:#213f99;
+}
+.title1_a{
+	width: 40px;
+	height: 30px;
+	margin-top: 15px;
+	margin-left: 20px;
+	font-size: 18px;
+	font-weight: bold;
+}
+.title2_a{
+	width: 70px;
+	height: 30px;
+	margin-top: 18px;
+	margin-left: 8px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.title3_a{
+	width: 70px;
+	height: 30px;
+	margin-top: 18px;
+	margin-left: 8px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.title1_a a{
+	text-decoration: none;
+	color: #213f99;	
+}
+.title2_a a{
+	text-decoration: none;
+	color: #213f99;	
+}
+.title3_a a{
+	text-decoration: none;
+	color: #eef2f6;	
+}
+#content{
+	width: 899px;
+	height: 3100px;
+	background-color: #eef2f6;
+	margin-left: 49px;
+	padding-top: 26px;
+	border-radius: 15px;
+	box-shadow: 4px 4px 5px #444;
+	z-index: ;
+}
+#intro{
+	width: 899px;
+	height: 217px;
+	margin-left: 49px;
+}
+.cxg{
+	width: 360px;
+	height: 217px;
+	float: left;
+}
+.intro_txt{
+	width: 492px;
+	height: 217px;
+	text-shadow:1px 1px 1px #444;
+	float: left;
+}
+#nav{
+	width: 260px;
+	height: 319px;
+	float: left;
+	margin-left: 49px;
+	margin-top: 73px;
+}
+.background{
+	width: 260px;
+	height: 34px;
+	margin: 0;
+	float: left;
+}
+.news{
+	width: 260px;
+	height: 35px;
+	margin: 0;
+	float: left;
+}
+.research{
+	width: 260px;
+	height: 41px;
+	margin: 0;
+	float: left;
+}
+.select{
+	width: 260px;
+	height: 43px;
+	margin: 0;
+	float: left;
+}
+.project{
+	width: 260px;
+	height: 43px;
+	margin: 0;
+	float: left;
+}
+.professional{
+	width: 260px;
+	height: 43px;
+	margin: 0;
+	float: left;
+}
+.teaching{
+	width: 260px;
+	height: 43px;
+	margin: 0;
+	float: left;
+}
+.hobby{
+	width: 260px;
+	height: 43px;
+	margin: 0;
+	float: left;
+}
+#detail{
+	width: 799px;
+	height: 1000px;
+	margin-top: 40px;
+	margin-left: 51px;
+	float: left;
+}
+#detail p{
+	margin-top: 10px;
+	margin-left: 33px;
+	font-size: 15px;
+	text-shadow:0px 0px 1px #444;
+}
+.detail_img{
+	width: 499px;
+	height: 41px;
+	margin-top: 12px;
+}
