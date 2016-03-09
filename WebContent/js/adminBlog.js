@@ -1,19 +1,5 @@
 document.write("<script language=javascript src='js/common.js'></script>");
 $(document).ready(function(){
-	//设置当前页标题
-	var topTitle;
-	if(localStorage.getItem("type")=="1"){
-		topTitle = "科研需求";
-	}else if(localStorage.getItem("type")=="2"){
-		topTitle = "网协";
-	}else if(localStorage.getItem("type")=="3"){
-		topTitle = "读书活动";
-	}else if(localStorage.getItem("type")=="4"){
-		topTitle = "新闻";
-	}else if(localStorage.getItem("type")=="5"){
-		topTitle = "热门";
-	}
-	$("#topTitle").text(topTitle);
 	$.get("blog/blogAction!getBlog",
 			  
 			  function(data,status){
@@ -27,7 +13,7 @@ $(document).ready(function(){
 			   
 			    //获取成功
 			    else{
-			    	var html;
+			    	var html="";
 			    	//未登录
 			    	if(localStorage.getItem("role")==null || localStorage.getItem("role")==""){
 			    		$.each(json.blogList, function(index, val) {
@@ -43,7 +29,7 @@ $(document).ready(function(){
 			    		$.each(json.blogList, function(index, val) {
 //			    			alert(localStorage.getItem("type")+","+val.type);
 //			    			alert((localStorage.getItem("type")==val.type && val.state!=2) || (localStorage.getItem("type")==val.type && val.state==2 && localStorage.getItem("id")==val.user_id));
-			    			if((localStorage.getItem("type")==val.type && val.state!=2) || (localStorage.getItem("type")==val.type && val.state==2 && localStorage.getItem("id")==val.user_id)){
+			    			if((val.state!=2) || (val.state==2 && localStorage.getItem("id")==val.user_id)){
 			    				html = html + '<div class="jumbotron"><table><tr><td width="90%"><a href="#" onclick="clickBlogTitle('+val.id+')"><h3 style="text-align:left;margin-top:-20px;">'+val.title+'</h3></a></td><td><button type="button" class="btn btn-info" onclick="clickDelete('+val.id+')">删除</button></td></tr><tr><td><p style="text-align:left;font-size:16px;">'+val.description+'</p></td></tr><tr><td><p style="text-align:left;margin-bottom:-20px;font-size:14px;color:#949494;">'+val.time+'&nbsp;&nbsp;&nbsp;&nbsp;'+val.name+'</p></td></tr></table></div>';
 			    				$("#blogList").text("");
 			    				$("#blogList").append(html);

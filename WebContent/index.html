@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="../../favicon.ico">
-
-	<title>Game AI</title>
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
+  <meta charset="utf-8"/>
+  	<title>Game AI - 管理后台</title>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/resumeDetail.js"></script>
+<script src="js/ckeditor.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 	<link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
 	<!-- 可选的Bootstrap主题文件（一般不使用） -->
@@ -16,183 +15,46 @@
 	<script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
+	<link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="main.css">  
 </head>
+<body>
 
-<body style="text-align: center;">
-	<!-- 导航栏｛ -->	
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<!-- 标题｛ -->
-        	<div class="navbar-header">
-          		<a class="navbar-brand" href="#">Game AI</a>
-        	</div>
-        	<!-- ｝标题 -->
-        	<!-- 导航按钮｛ -->
-        	<div id="navbar" class="collapse navbar-collapse">
-          		<ul class="nav navbar-nav">
-            		<li class="active"><a id="homes" href="javascript:void">Home</a></li>
-            		<li><a id="projects" href="javascript:void">Projects</a></li>
-            		<li><a id="members" href="javascript:void">Interests</a></li>
-            		<li><a id="publications" href="javascript:void">Publications</a></li>
-            		<li><a href="adminBlog.html">News</a></li>
-            		<li><a target="_blank" href="teacherDetail.html">Advisor</a></li>
-            		<li><a id="contacts" href="javascript:void">Contact</a></li>
-         		 </ul>
-        	</div>
-        	<!-- ｝导航按钮 -->
+<!-- 导航栏｛ -->	
+<div id="whole">
+	<div id="header">
+			<img class="logo" src="images/logo.jpg">
+			<div class="title1"><p class="title1_a"><a href="#" onclick="clickResumeDetail(5)">首页</a></p></div>
+			<div class="title1"><p class="title2_a"><a href="keyanxvqiu.html">科研内容</a></p></div>
+			<div class="title2"><p class="title3_a"><a href="member.html">团队成员</a></p></div>
+			<div class="title1 "><p class="title2_a"><a href="#" onclick="clickResumeDetail(5)">导师主页</a></p></div>
+			<!-- <div class="title1"><p class="title2_a"><a href="#">好书研读</a></p></div>
+			<div class="title1"><p class="title2_a"><a href="#">招贤纳士</a></p></div>
+			<div class="title1"><p class="title2_a"><a href="#">研发需求</a></p></div> -->
+			<div class="title1"><p class="title2_a"><a href="newsList.html">博客</a></p></div>
+			<!-- <div class="title1"><p class="title2_a"><a href="#">展示</a></p></div>
+			<div class="title1"><p class="title2_a"><a href="#">网协</a></p></div> -->
+			<div class="title1"><p class="title2_a"><a href="link.html">链接</a></p></div>
 		</div>
-	</nav>
     <!-- ｝导航栏 -->	
 
-
-	<!-- 主题内容部分｛ -->
-	<div class="container" style="margin-top: 100px;">
-		<div class="jumbotron" style="margin-top: -20px;">
-			<table width="100%">
-				<tr>
-					<td width="50%">
-						<h2 style="text-align: left;margin-top:0px;">Game AI Research Group</h2>
-        				<p style="text-align: left;">Game AI Research Group位于南京邮电大学仙林校区，负责人是陈兴国教授。Game AI Research Group的主要研究兴趣包括机器学习、数据挖掘、模式识别、信息检索、演化计算、神经计算，以及相关的其他领域。目前的主要研究内容包括：集成学习、半监督与主动学习、多示例与多标记学习、代价敏感和类别不平衡学习、度量学习、降维与特征选择、结构学习与聚类、演化计算的理论基础、增强可理解性、基于内容的图像检索、 Web 搜索与挖掘、人脸识别、 计算机辅助医疗诊断、生物信息学等。</p>
-					</td>
-					<td width="50%">
-						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-left:40px;">
-        					<ol class="carousel-indicators">
-          						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        					</ol>
-        					<div class="carousel-inner" role="listbox">
-          						<div class="item active">
-            						<img data-src="holder.js/1140x500/auto/#777:#555/text:First slide" src="images/project1.jpg" alt="First slide">
-          						</div>
-          						<div class="item">
-            						<img data-src="holder.js/1140x500/auto/#666:#444/text:Second slide" src="images/project2.jpg" alt="Second slide">
-          						</div>
-          						<div class="item">
-            						<img data-src="holder.js/1140x500/auto/#555:#333/text:Third slide" src="images/project3.jpg" alt="Third slide">
-          						</div>
-        					</div>
-        					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          						<span class="sr-only">Previous</span>
-        					</a>
-        					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          						<span class="sr-only">Next</span>
-        					</a>
-      					</div>
-					</td>
-				</tr>
-			</table>
-      	</div>
-      	
-
-		<!-- 研究方向｛ -->
-		<h1 style="text-align: left;margin-left: 50px;margin-top: 30px;" id="member">Research Interests</h1>
-		<hr class="featurette-divider">
-        <div class="col-lg-4">
-          	<img class="img-circle" src="images/calculator-icon.png" alt="Generic placeholder image" width="140" height="140">
-          	<p style="font-weight:bold;margin-top:10px;font-size:16px;">强化学习</p>
-          	<p>Reinforcement<br> Learning</p>
-        </div>
-        <div class="col-lg-4">
-          	<img class="img-circle" src="images/video-icon.png" alt="Generic placeholder image" width="140" height="140">
-          	<p style="font-weight:bold;margin-top:10px;font-size:16px;">智能游戏</p>
-          	<p>Game AI</p>
-        </div>
-        <div class="col-lg-4">
-          	<img class="img-circle" src="images/sound-icon.png" alt="Generic placeholder image" width="140" height="140">
-          	<p style="font-weight:bold;margin-top:10px;font-size:16px;">自动编曲</p>
-          	<p>Computer Algorithmic<br> Music Composition</p>
-        </div>
-      
-
-
-	<!-- 项目｛ -->
-	&nbsp;&nbsp;
-	<h1 style="text-align: left;margin-left: 50px;margin-top: 30px;" id="project">Projects</h1>
-	<hr class="featurette-divider">
-    	<div class="row featurette">
-        	<div class="col-md-7 col-md-push-5">
-          		<h2 class="featurette-heading" style="text-align:left;color:#333;">国家自然科学基金-青年项目</h2>
-          		<p class="lead" style="text-align: left;font-size: 16px;">“基于值函数估计的强化学习算法研究(61403208)” (课题年限：2015～2017)<br>项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍 </p>
-        	</div>
-        	<div class="col-md-5 col-md-pull-7">
-          		<img src="images/project1.jpg" class="img-thumbnail" alt="" style="width: 300px;hight:100px;">
-        	</div>
-     	</div>
-	<hr class="featurette-divider">
-    	<div class="row featurette">
-        	<div class="col-md-7 col-md-push-5">
-          		<h2 class="featurette-heading" style="text-align:left;color:#333;">南京邮电大学引进人才科研启动基金</h2>
-          		<p class="lead" style="text-align: left;font-size: 16px;">"智能交互式游戏中强化学习技术研究(XK0040914014)" (课题年限：2014～2017)<br>项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍项目介绍 </p>
-        	</div>
-        	<div class="col-md-5 col-md-pull-7">
-          		<img src="images/project2.jpg" class="img-thumbnail" alt="" style="width: 300px;hight:100px;">
-        	</div>
-     	</div>
-	<!-- ｝项目 -->
-
-
-	<!-- 论著｛ -->
-	&nbsp;&nbsp;
-	<h1 id="publication" style="text-align: left;margin-left: 50px;">Publications</h1>
-	<hr class="featurette-divider">
-	<div class="jumbotron" style="text-align: left; font-size: 16px;">
-    	<ul>
-    		<li style="line-height:200%">陈兴国, 高阳，范顺国，俞亚君. 基于核方法的连续动作Actor-Critic学习. 模式识别与人工智能. (Accepted)</li>
-    		<li style="line-height:200%">陈兴国, 高阳，范顺国，俞亚君. 基于核方法的连续动作Actor-Critic学习. 中国机器学习会议(CCML), 2013.</li>
-    		<li style="line-height:200%">Yujing Hu, Yang Gao, Ruili Wang, Zhaonan Sun, and Xingguo Chen. nMetaQ-an n-agent Reinforcement Learning Algorithm based on Meta Equilibrium. In Proc. Adaptive Learning AgentWorkshop in the 12th International Conference on Autonomous Agents and Multi-agent Systems (AAMAS ALA 2012), 87-94, 2012.</li>
-    		<li style="line-height:200%">Hao Wang, Yang Gao, and Xingguo Chen. RL-DOT: A Reinforcement Learning NPC Team for Playing Domination Games. IEEE Transactions on Computational Intelligence and AI in Games (IEEE TCIAIG), 2(1): 17-26, 2010. (SCI) BibTeX</li>
-    		<li style="line-height:200%">Xingguo Chen, Hao Wang, Weiwei Wang, Yinghuan Shi, and Yang Gao. Apply ant colony optimization to Tetris. In Proc. 11th Annual Conference on Genetic and Evolutionary Computation (GECCO). 1741-1742, Montreal, QC, Canada, 2009. (EI) BibTeX</li>
-    		<li style="line-height:200%">高阳，王巍巍，陈兴国，葛屾. 关系强化学习研究：以俄罗斯方块游戏为例. 机器学习及其应用，清华大学出版社, 33-48, 2009. BibTeX</li>
-    	</ul>    
-    </div>
-	<!-- ｝论著 -->
-
-	<hr class="featurette-divider">
-	<div class="jumbotron" style="float:left;margin-top: -20px;width:100%;" id="contact">
-    	<h2 style="text-align: center;margin-top:-20px;">Contact</h2>
-    	<hr style="width: 200px;border:#BCBCBC thin solid;margin-top: 0px;">
-      
-      	<div style="float:left;width:40%;display:inline;display:-moz-inline-box;display:inline-block;margin-top: 10px;">
-      		<img src="images/locate.png" style="float:left;width:20px;margin-top: 5px;"/>
-      		<span style="float:left;margin-top:5px;margin-left: 10px;">南京市文苑路9号南京邮电大学</span>
-      		<img src="images/monitor.png" style="float:left;width:20px;clear:left;margin-top: 20px;"/>
-      		<span style="float:left;margin-top:5px;margin-left: 10px;margin-top: 18px;">chenxg@njupt.edu.cn</span>
-      		<img src="images/inbox.png" style="float:left;width:20px;clear:left;margin-top: 20px;"/>
-      		<span style="float:left;margin-top:5px;margin-left: 10px;margin-top: 20px;">13951835361</span>
-      		<img src="images/contact.png" style="float:left;width:20px;clear:left;margin-top: 20px;"/>
-      		<span style="float:left;margin-top:5px;margin-left: 10px;margin-top: 20px;">联系人：陈兴国</span>
-      	</div>
-      
-      	<div style="float:left;width:60%;margin-top: 10px;">
-      		<form action="" style="float:left;margin-left: 30px;">
-      			<input type="text" name="memberEntity.name" style="float:left;width:500px;" class="form-control" placeholder="您的邮箱" required>
-      			<textarea rows="5"  name="memberEntity.skills" style="float:left;width:500px;margin-top:10px;" class="form-control" placeholder="您想让我们知道的事……" required></textarea>
-      			<button class="btn btn-lg btn-primary btn-block" type="submit" style="float:left;width:100px;margin-top:10px;">发送</button>
-      		</form>
-      	</div>
-         
-      </div>
-      
-	</div>
-	<!-- ｝主题内容部分 -->
-
-
-	<!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; <a href="#">NJUPT Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+	<div class="container" style="margin-top: 50px;width:899px;">
+		<!-- <div class="well">
+			<h2 id="titile"></h2>
+			<span id="name"></span>
+			<span id="time" style="margin-left:10px;"></span>
+		</div> -->
+		<a href="#" class="btn btn-warning" onclick="modifyResume()" id="modifyResumeBtn">修改简历</a>
+		<div class="jumbotron" style="margin-top: 0px;" id="content2">
+		</div>
+   	</div>
+   	
+   	</div>
+        
+        
+        <!-- highlight.js{ -->
+        <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+		<script >hljs.initHighlightingOnLoad();</script>
+		<!-- }highlight.js -->  
+</body>
 </html>

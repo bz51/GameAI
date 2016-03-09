@@ -19,7 +19,7 @@
     			<param name="exception.logEnabled">true</param>  
   			</interceptor-ref>  
         	<!-- result四种：dispatcher、redirect、chain、redirectAction -->
-            <result type="redirectAction">index.html</result>
+            <result type="redirect">resumeDetail.html</result>
         </action>
     </package>
 
@@ -115,6 +115,12 @@
     		
 			<!-- 删除博文 -->
 			<result name="deleteBlog" type="json">
+    			<param name="includeProperties">reason,result</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+    		
+			<!-- 修改一篇博客 -->
+			<result name="modifyBlog" type="json">
     			<param name="includeProperties">reason,result</param>
     			<param name="contentType">text/html</param> 
     		</result>

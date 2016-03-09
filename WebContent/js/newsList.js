@@ -33,8 +33,8 @@ $(document).ready(function(){
 			    				$("#list3").text("");
 			    				$("#list4").text("");
 			    				$("#list5").text("");
-			    				$("#list1").append(html1);
-			    				$("#list2").append(html2);
+			    				$("#list1").append(html2);
+			    				$("#list2").append(html1);
 			    				$("#list3").append(html3);
 			    				$("#list4").append(html4);
 			    				$("#list5").append(html5);
@@ -60,8 +60,8 @@ $(document).ready(function(){
 			    				$("#list3").text("");
 			    				$("#list4").text("");
 			    				$("#list5").text("");
-			    				$("#list1").append(html1);
-			    				$("#list2").append(html2);
+			    				$("#list2").append(html1);
+			    				$("#list1").append(html2);
 			    				$("#list3").append(html3);
 			    				$("#list4").append(html4);
 			    				$("#list5").append(html5);

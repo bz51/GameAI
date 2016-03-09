@@ -7,13 +7,18 @@ $(document).ready(function(){
 	var id = GetQueryString("id");
 	var url = "";
 	if(id!=null && id!=""){
+//		alert("blog/blogAction!getResume?user_id="+localStorage.getItem("look_user_id"));
 		url = "blog/blogAction!getResume?user_id="+id;
 		//判断是否需要显示“修改简历”按钮
 		if(id==localStorage.getItem("id")){
 			$("#modifyResumeBtn").show();
 		}
-	}else{
+	}else if(localStorage.getItem("look_user_id")!=null && localStorage.getItem("look_user_id")!=""){
+//		alert("blog/blogAction!getResume?user_id="+localStorage.getItem("look_user_id"));
 		url = "blog/blogAction!getResume?user_id="+localStorage.getItem("look_user_id");
+	}
+	else{
+		url = "blog/blogAction!getResume?user_id=5";
 	}
 	
 	//发送请求
@@ -38,6 +43,8 @@ $(document).ready(function(){
 		    	$('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                   });
+		    	
+		    	localStorage.setItem("look_user_id","");
 		    }
 		    
 	});
@@ -67,7 +74,7 @@ function GetQueryString(name)
  * 点击“修改简历”
  */
 function modifyResume(){
-	localStorage.setItem("modify_content",$("#content2").html());
+	localStorage.setItem("modify_content",$("#content2").html()+".");
 //	alert($("#content").html());
 	window.location.href="postBlog.html";
 }

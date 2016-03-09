@@ -45,6 +45,13 @@
 	 */
 	function clickResumeDetail(user_id){
 //		alert("1:"+user_id);
-		localStorage.setItem("look_user_id",user_id);
+		if(user_id==null || user_id==""){
+//			alert("查看自己的简历,id="+user_id);
+			localStorage.setItem("look_user_id",localStorage.getItem("id"));
+//			alert("id="+localStorage.getItem("id"));
+		}
+		else{
+			localStorage.setItem("look_user_id",user_id);
+		}
 		window.location.href="resumeDetail.html";
 	}

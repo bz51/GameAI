@@ -3,7 +3,7 @@ $(document).ready(function(){
 	
 	//若从修改简历跳转过来，则将带修改内容显示在textarea中
 	if(localStorage.getItem("modify_content")!=null && localStorage.getItem("modify_content")!=""){
-		alert(localStorage.getItem("modify_content"));
+//		alert(localStorage.getItem("modify_content"));
 		CKEDITOR.instances.editor1.setData(localStorage.getItem("modify_content"));//赋值
 	}
 	
@@ -22,28 +22,55 @@ function clickFabu(){
 		alert("标题不能为空！");
 	else{
 		var content = CKEDITOR.instances.editor1.getData();
-		content = content.replaceAll("\n", "<br/>").replace("#", "~~~");
-		alert("type="+$("#type").val()+",state="+$("#state").val());
-//		alert("blog/blogAction!postBlog?description="+CKEDITOR.instances.editor1.document.getBody().getText().substr(0, 15)+"&title="+$("#title").val()+"&content="+content);
-//		$.get("blog/blogAction!postBlog?description="+CKEDITOR.instances.editor1.document.getBody().getText().substr(0, 15)+"&title="+$("#title").val()+"&content="+content,
-		$.post("blog/blogAction!postBlog",{description:CKEDITOR.instances.editor1.document.getBody().getText().substr(0, 15),title:$('#title').val(),content:content,type:$("#type").val(),state:$("#state").val()},
-			  
-			  function(data,status){
-//				alert(data);
-			    var json = eval('(' + data + ')');
-			    
-			    //获取失败
-			    if(json.result=="no"){
-			    	alert(json.reason);
-			    }
-			   
-			    //获取成功
-			    else{
-			    	alert("发布成功！");
-			    	window.location.href="adminBlog.html";
-			    }
-			    
-		});
+//		content = content.replace("#", "~~~");
+		content = content.replaceAll("\n", "").replace("#", "~~~");
+//		alert("type="+$("#type").val()+",state="+$("#state").val()+"modify_content＝"+localStorage.getItem("modify_content"));
+		//修改简历内容
+		if(localStorage.getItem("modify_content")!=null && localStorage.getItem("modify_content")!=""){
+//			alert("修改简历");
+			$.post("blog/blogAction!modifyBlog",{content:content,user_id:localStorage.getItem("id")},
+					  
+					  function(data,status){
+//						alert(data);
+					    var json = eval('(' + data + ')');
+					    
+					    //获取失败
+					    if(json.result=="no"){
+					    	alert(json.reason);
+					    }
+					   
+					    //获取成功
+					    else{
+					    	localStorage.setItem("modify_content","");
+					    	alert("发布成功！");
+					    	window.location.href="adminBlog.html";
+					    }
+					    
+				});
+		}
+		//正常发布博客
+		else{
+//			alert(content);
+			$.post("blog/blogAction!postBlog",{description:CKEDITOR.instances.editor1.document.getBody().getText().substr(0, 15),title:$('#title').val(),content:content,type:$("#type").val(),state:$("#state").val(),user_id:localStorage.getItem("id")},
+					  
+					  function(data,status){
+//						alert(data);
+						$("#xxx").text(data);
+					    var json = eval('(' + data + ')');
+					    
+					    //获取失败
+					    if(json.result=="no"){
+					    	alert(json.reason);
+					    }
+					   
+					    //获取成功
+					    else{
+					    	alert("发布成功！");
+					    	window.location.href="adminBlog.html";
+					    }
+					    
+				});
+		}
 	}
 }
 

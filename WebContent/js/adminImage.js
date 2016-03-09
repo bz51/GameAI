@@ -2,7 +2,7 @@ document.write("<script language=javascript src='js/common.js'></script>");
 $(document).ready(function(){
 	
 	//隐藏大图
-//	$("#bigPic").hide();
+	$("#bigPic").hide();
 	
 	/**
 	 * 加载全部图片信息
@@ -23,7 +23,7 @@ $(document).ready(function(){
 		    	var html = "";
 		    	$.each(json.imageList, function(index, val) {
 		    		var name = val.name.replaceAll("/","^");
-		    		alert(name);
+//		    		alert(name);
 		    		html = html + '<tr><td><a href="#" onclick="clickPic("'+name.replaceAll("/","^")+'")"><img width="100px;" src="'+val.name+'"/></a></td><td>'+val.name+'</td><td>'+val.user_name+'</td><td>'+val.time+'</td><td><button onclick="deletePic('+val.id+')">删除</button></td></tr>';
 		    		
 		    		$("#imageTable").text("");
@@ -45,7 +45,7 @@ $(document).ready(function(){
  * 点击“查看大图”按钮
  */
 function clickPic(src){
-	alert();
+//	alert();
 	//显示大图
 //	$("#bigPic").show();
 //	$("bigPic").attr("src",src);

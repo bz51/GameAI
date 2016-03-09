@@ -42,8 +42,8 @@ body{
 	float: left;
 	margin-left: 21px;
 	margin-top: 35px;
-	border-radius: 13px 13px 0 0;
-	background-color:#213f99;
+	/* border-radius: 13px 13px 0 0;
+	background-color:#213f99; */
 }
 .title1_a{
 	width: 40px;
@@ -71,15 +71,16 @@ body{
 }
 .title1_a a{
 	text-decoration: none;
-	color: #213f99;	
+	color: #213f99;
 }
 .title2_a a{
 	text-decoration: none;
-	color: #213f99;	
+	color: #213f99;
 }
 .title3_a a{
 	text-decoration: none;
-	color: #eef2f6;	
+	color: #213f99;
+	/* color: #eef2f6;	 */
 }
 #content{
 	width: 899px;
@@ -179,4 +180,12 @@ body{
 	width: 499px;
 	height: 41px;
 	margin-top: 12px;
+}
+.nav_back_color_active{
+	border-radius: 13px 13px 0 0;
+	background-color:#213f99;
+	color: white;
+}
+.nav_back_color{
+	
 }

@@ -32,7 +32,7 @@ public class BlogAction extends ActionSupport implements SessionAware{
 		entity.setContent(content.replaceAll("~~~", "#"));
 		entity.setName(session.get("name")+"");
 		entity.setTime(new Timestamp(new Date().getTime()));
-		entity.setUser_id((int) session.get("id"));
+		entity.setUser_id(Integer.parseInt(user_id));
 		entity.setDescription(description);
 		entity.setTitle(title);
 		entity.setType(type);
@@ -100,6 +100,21 @@ public class BlogAction extends ActionSupport implements SessionAware{
 		return "deleteBlog";
 	}
 
+	
+	
+	
+	/**
+	 * 修改一篇博客
+	 */
+	public String modifyBlog(){
+		boolean result = CoreDao.updateByHql("update BlogEntity set content='"+content.replaceAll("~~~", "#")+"' where user_id="+user_id+" and type=0");
+		System.out.println();
+		if(!result){
+			this.result = "no";
+			this.reason = "Hibernate更新异常!";
+		}
+		return "modifyBlog";
+	}
 	public String getContent() {
 		return content;
 	}
