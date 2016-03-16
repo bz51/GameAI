@@ -28,16 +28,20 @@ $(document).ready(function(){
 			    					html4 = html4 + '<li><a href="#" onclick="clickBlogTitle('+val.id+')">'+val.title+'</a></li>';
 			    				else if(val.type==5)
 			    					html5 = html5 + '<li><a href="#" onclick="clickBlogTitle('+val.id+')">'+val.title+'</a></li>';
+			    				else if(val.type==6)
+			    					html6 = html6 + '<li><a href="#" onclick="clickBlogTitle('+val.id+')">'+val.title+'</a></li>';
 			    				$("#list1").text("");
 			    				$("#list2").text("");
 			    				$("#list3").text("");
 			    				$("#list4").text("");
 			    				$("#list5").text("");
+			    				$("#list6").text("");
 			    				$("#list1").append(html2);
 			    				$("#list2").append(html1);
 			    				$("#list3").append(html3);
 			    				$("#list4").append(html4);
 			    				$("#list5").append(html5);
+			    				$("#list6").append(html6);
 			    			}
 			    		});
 			    	}
@@ -55,16 +59,20 @@ $(document).ready(function(){
 			    					html4 = html4 + '<li><a href="#" onclick="clickBlogTitle('+val.id+')">'+val.title+'</a></li>';
 			    				else if(val.type==5)
 			    					html5 = html5 + '<li><a href="#" onclick="clickBlogTitle('+val.id+')">'+val.title+'</a></li>';
+			    				else if(val.type==6)
+			    					html6 = html6 + '<li><a href="#" onclick="clickBlogTitle('+val.id+')">'+val.title+'</a></li>';
 			    				$("#list1").text("");
 			    				$("#list2").text("");
 			    				$("#list3").text("");
 			    				$("#list4").text("");
 			    				$("#list5").text("");
+			    				$("#list6").text("");
 			    				$("#list2").append(html1);
 			    				$("#list1").append(html2);
 			    				$("#list3").append(html3);
 			    				$("#list4").append(html4);
 			    				$("#list5").append(html5);
+			    				$("#list6").append(html6);
 			    			}
 			    		});
 			    	}

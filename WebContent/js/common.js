@@ -36,6 +36,11 @@
 			localStorage.setItem("type","5");
 			window.location.href="adminBlog.html";
 		}
+		//点击“项目需求”
+		else if(index==6){
+			localStorage.setItem("type","6");
+			window.location.href="adminBlog.html";
+		}
 		
 	}
 	
