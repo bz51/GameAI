@@ -1,11 +1,100 @@
 document.write("<script language=javascript src='js/common.js'></script>");
 $(document).ready(function(){
 	
-	//若从修改简历跳转过来，则将带修改内容显示在textarea中
-	if(localStorage.getItem("modify_content")!=null && localStorage.getItem("modify_content")!=""){
-//		alert(localStorage.getItem("modify_content"));
-		CKEDITOR.instances.editor1.setData(localStorage.getItem("modify_content"));//赋值
+//	alert("post blog_id="+localStorage.getItem("modify_blog_id"));
+	if(localStorage.getItem("modify_blog_id")!=null && localStorage.getItem("modify_blog_id")!=""){
+		//获取该博客的title和content
+		$("#waitBox").html("<h2>正在加载中……</h2>");
+		setTimeout(function () {
+			$.get("blog/blogAction!getBlog?blog_id="+localStorage.getItem("modify_blog_id"),
+					  
+					  function(data,status){
+//						alert(data);
+					    var json = eval('(' + data + ')');
+					    
+					    //获取失败
+					    if(json.result=="no"){
+					    	alert(json.reason);
+					    }
+					   
+					    //获取成功
+					    else{
+					    	$.each(json.blogList, function(index, val) {
+					    		title = val.title;
+						    	content = val.content;
+						    	localStorage.setItem("modify_content",val.content);
+						    	localStorage.setItem("modify_title",val.title);
+					    	});
+					    	
+//					    	alert(localStorage.getItem("modify_content"));
+					    	//若从修改简历跳转过来，则将带修改内容显示在textarea中
+					    	if(localStorage.getItem("modify_content")!=null && localStorage.getItem("modify_content")!=""){
+					    		CKEDITOR.instances.editor1.setData(localStorage.getItem("modify_content"));//赋值
+//					    		localStorage.setItem("modify_blog_id","");
+//					    		localStorage.setItem("modify_content","");
+					    		//赋上标题
+//					    		alert(localStorage.getItem("modify_title"));
+					    		if(localStorage.getItem("modify_title")!=null && localStorage.getItem("modify_title")!=""){
+					    			$("#title").val(localStorage.getItem("modify_title"));
+					    			localStorage.setItem("modify_title","");
+					    		}
+					    		else
+					    			$("#title").val(localStorage.getItem("name")+"的个人简历");
+					    		//隐藏类型选项
+					    		$("#type").hide();
+					    		$("#typeText").hide();
+					    		//隐藏权限选项
+					    		$("#state").hide();
+					    		$("#stateText").hide();
+					    	}
+					    	$("#waitBox").hide();
+					    }
+				});
+	    }, 3000);
 	}
+	
+	else{
+		$("#waitBox").hide();
+//		alert();
+		//若从修改简历跳转过来，则将带修改内容显示在textarea中
+    	if(localStorage.getItem("modify_content")!=null && localStorage.getItem("modify_content")!=""){
+    		CKEDITOR.instances.editor1.setData(localStorage.getItem("modify_content"));//赋值
+//    		localStorage.setItem("modify_blog_id","");
+//    		localStorage.setItem("modify_content","");
+    		//赋上标题
+//    		alert(localStorage.getItem("modify_title"));
+    		if(localStorage.getItem("modify_title")!=null && localStorage.getItem("modify_title")!=""){
+    			$("#title").val(localStorage.getItem("modify_title"));
+    			localStorage.setItem("modify_title","");
+    		}
+    		else
+    			$("#title").val(localStorage.getItem("name")+"的个人简历");
+    		//隐藏类型选项
+    		$("#type").hide();
+    		$("#typeText").hide();
+    		//隐藏权限选项
+    		$("#state").hide();
+    		$("#stateText").hide();
+    	}
+	}
+//	//若从修改简历跳转过来，则将带修改内容显示在textarea中
+//	if(localStorage.getItem("modify_content")!=null && localStorage.getItem("modify_content")!=""){
+//		CKEDITOR.instances.editor1.setData(localStorage.getItem("modify_content"));//赋值
+//		//赋上标题
+////		alert(localStorage.getItem("modify_title"));
+//		if(localStorage.getItem("modify_title")!=null && localStorage.getItem("modify_title")!=""){
+//			$("#title").val(localStorage.getItem("modify_title"));
+//			localStorage.setItem("modify_title","")
+//		}
+//		else
+//			$("#title").val(localStorage.getItem("name")+"的个人简历");
+//		//隐藏类型选项
+//		$("#type").hide();
+//		$("#typeText").hide();
+//		//隐藏权限选项
+//		$("#state").hide();
+//		$("#stateText").hide();
+//	}
 	
 });
 
@@ -25,10 +114,10 @@ function clickFabu(){
 //		content = content.replace("#", "~~~");
 		content = content.replaceAll("\n", "").replace("#", "~~~");
 //		alert("type="+$("#type").val()+",state="+$("#state").val()+"modify_content＝"+localStorage.getItem("modify_content"));
-		//修改简历内容
+		//修改简历、博客
 		if(localStorage.getItem("modify_content")!=null && localStorage.getItem("modify_content")!=""){
 //			alert("修改简历");
-			$.post("blog/blogAction!modifyBlog",{content:content,user_id:localStorage.getItem("id")},
+			$.post("blog/blogAction!modifyBlog",{content:content,user_id:localStorage.getItem("id"),user_name:localStorage.getItem("name"),blog_id:localStorage.getItem("modify_blog_id")},
 					  
 					  function(data,status){
 //						alert(data);
@@ -42,7 +131,9 @@ function clickFabu(){
 					    //获取成功
 					    else{
 					    	localStorage.setItem("modify_content","");
+					    	localStorage.setItem("modify_blog_id","");
 					    	alert("发布成功！");
+//					    	alert(localStorage.getItem("modify_blog_id"));
 					    	window.location.href="adminBlog.html";
 					    }
 					    

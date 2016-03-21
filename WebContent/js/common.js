@@ -1,8 +1,4 @@
-//判断是否是超级管理员
-	if(localStorage.getItem("role")==null || localStorage.getItem("role")==""){
-//		alert("请登录");
-//		window.location.href="admin.html";
-	}
+
 	
 	
 	
@@ -49,14 +45,47 @@
 	 * 查看某一个人的简历
 	 */
 	function clickResumeDetail(user_id){
-//		alert("1:"+user_id);
+		//看自己的简历
 		if(user_id==null || user_id==""){
 //			alert("查看自己的简历,id="+user_id);
 			localStorage.setItem("look_user_id",localStorage.getItem("id"));
-//			alert("id="+localStorage.getItem("id"));
+			window.location.href="resumeDetail.html";
 		}
+		//跳转到首页
+		else if(user_id=='index'){
+			window.location.href="index1.html";
+		}
+		//看别人的简历
 		else{
 			localStorage.setItem("look_user_id",user_id);
+			window.location.href="resumeDetail.html";
 		}
-		window.location.href="resumeDetail.html";
+		
+	}
+	
+	
+	/**
+	 * 注销登录
+	 */
+	function logout(){
+		localStorage.setItem("id","");
+    	localStorage.setItem("username","");
+    	localStorage.setItem("name","");
+    	localStorage.setItem("role","");
+    	
+    	alert("注销成功！");
+    	
+    	window.location.href="admin.html";
+	} 
+	
+	
+	
+	/**
+	 * 发布一篇新的博客
+	 */
+	function postNewBlog(){
+		//清除modify_content标记
+		localStorage.setItem("modify_content","");
+		//跳转至发布博客页面
+		window.location.href="postBlog.html";
 	}

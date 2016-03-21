@@ -38,11 +38,12 @@
         	<div id="navbar" class="collapse navbar-collapse">
           		<ul class="nav navbar-nav">
             		<li class="active"><a href="adminIndex.html">首页</a></li>
-            		<li><a href="postBlog.html">发布信息</a></li>
+            		<li><a href="#" onclick="postNewBlog()">发布信息</a></li>
             		<li><a href="adminBlog.html">信息管理</a></li>
             		<li><a href="adminImage.html">图片管理</a></li>
             		<li><a href="adminUser.html">用户管理</a></li>
             		<li><a href="#" onclick="clickResumeDetail()">我的简历</a></li>
+            		<li><a href="#" onclick="logout()">注销</a></li>
          		 </ul>
         	</div>
         	<!-- ｝导航按钮 -->
@@ -55,7 +56,7 @@
     	<a href="#">
     		<div class="jumbotron">
     			<table width="100%">
-    				<tr><td width="90%"><h3 style="text-align:left;margin-top:-20px;">这是标题</h3></td><td><button type="button" class="btn btn-info" style="margin-left:-200px;" onclick="clickDelte()">删除</button></td></tr>
+    				<tr><td width="90%"><h3 style="text-align:left;margin-top:-20px;">这是标题</h3></td><td><button type="button" class="btn btn-info" style="margin-left:-200px;" onclick="clickDelte()">修改</button><button type="button" class="btn btn-info" style="margin-left:-200px;" onclick="clickDelte()">删除</button></td></tr>
     				<tr><td><p style="text-align:left;font-size:16px;">这是内容简介</p></td></tr>
     				<tr><td><p style="text-align:left;margin-bottom:-20px;font-size:14px;color:#949494;">2016年2月3日 22:45&nbsp;&nbsp;&nbsp;&nbsp;柴博周</p></td></tr>
     			</table>

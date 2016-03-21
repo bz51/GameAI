@@ -16,7 +16,8 @@
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="main.css">  
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script type="text/javascript" src="js/index1.js"></script>  
 </head>
 <body>
 
@@ -24,29 +25,62 @@
 <div id="whole">
 	<div id="header">
 			<img class="logo" src="images/logo.jpg">
-			<div class="title1"><p class="title1_a"><a href="#" onclick="clickResumeDetail(5)">首页</a></p></div>
-			<div class="title1"><p class="title2_a"><a href="keyanxvqiu.html">科研内容</a></p></div>
+			<div class="title1 nav_back_color_active"><p class="title1_a"><a href="#" onclick="clickResumeDetail('index')" style="color:white;">首页</a></p></div>
+			<div class="title1"><p class="title2_a"><a href="newsList.html">科研内容</a></p></div>
+<!-- 			<div class="title1"><p class="title2_a"><a href="keyanxvqiu.html">科研内容</a></p></div> -->
 			<div class="title2"><p class="title3_a"><a href="member.html">团队成员</a></p></div>
 			<div class="title1 "><p class="title2_a"><a href="#" onclick="clickResumeDetail(5)">导师主页</a></p></div>
 			<!-- <div class="title1"><p class="title2_a"><a href="#">好书研读</a></p></div>
 			<div class="title1"><p class="title2_a"><a href="#">招贤纳士</a></p></div>
 			<div class="title1"><p class="title2_a"><a href="#">研发需求</a></p></div> -->
-			<div class="title1"><p class="title2_a"><a href="newsList.html">博客</a></p></div>
 			<!-- <div class="title1"><p class="title2_a"><a href="#">展示</a></p></div>
 			<div class="title1"><p class="title2_a"><a href="#">网协</a></p></div> -->
-			<div class="title1"><p class="title2_a"><a href="link.html">链接</a></p></div>
+			<div class="title1"><p class="title2_a"><a href="link.html">教学</a></p></div>
 		</div>
     <!-- ｝导航栏 -->	
-
+    
+    
 	<div class="container" style="margin-top: 50px;width:899px;">
-		<!-- <div class="well">
-			<h2 id="titile"></h2>
-			<span id="name"></span>
-			<span id="time" style="margin-left:10px;"></span>
+		
+		<div class="row" style="text-align:left;">
+        <div style="margin-left:35px;">
+          <div class="panel panel-info" style="width:400px;float:left;">
+            <div class="panel-heading">
+              <h3 class="panel-title"><a href="#">新闻</a></h3>
+<!--               <h3 class="panel-title"><a href="#" onclick="clickNav(1)">科研内容</a></h3> -->
+            </div>
+            <div class="panel-body" style="height:150px;overflow:scroll;">
+              <ul id="list4">
+              	<li><a>lalala</a></li>
+              	<li><a>lalala</a></li>
+              	<li><a>lalala</a></li>
+              	<li><a>lalala</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="panel panel-info" style="width:400px;">
+            <div class="panel-heading">
+              <h3 class="panel-title"><a href="#">热门</a></h3>
+<!--               <h3 class="panel-title"><a href="#" onclick="clickNav(3)">读书活动</a></h3> -->
+            </div>
+            <div class="panel-body" style="height:150px;overflow:scroll;">
+              <ul id="list5">
+              	<li><a>lalala</a></li>
+              	<li><a>lalala</a></li>
+              	<li><a>lalala</a></li>
+              	<li><a>lalala</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+      </div>
+		
+		
+		<!-- <a href="#" class="btn btn-warning" onclick="modifyResume()" id="modifyResumeBtn">修改简历</a> -->
+		<!-- <div class="jumbotron" style="margin-top: 0px;" id="content2">
 		</div> -->
-		<a href="#" class="btn btn-warning" onclick="modifyResume()" id="modifyResumeBtn">修改简历</a>
-		<div class="jumbotron" style="margin-top: 0px;" id="content2">
-		</div>
    	</div>
    	
    	</div>

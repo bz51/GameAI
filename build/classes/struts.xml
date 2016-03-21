@@ -19,7 +19,7 @@
     			<param name="exception.logEnabled">true</param>  
   			</interceptor-ref>  
         	<!-- result四种：dispatcher、redirect、chain、redirectAction -->
-            <result type="redirect">resumeDetail.html</result>
+            <result type="redirect">index1.html</result>
         </action>
     </package>
 

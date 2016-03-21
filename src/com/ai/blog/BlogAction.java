@@ -6,8 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 
 import com.ai.core.CoreDao;
+import com.ai.core.HibernateSessionFactory;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BlogAction extends ActionSupport implements SessionAware{
@@ -23,6 +26,7 @@ public class BlogAction extends ActionSupport implements SessionAware{
 	private BlogEntity blogEntity;
 	private String blog_id;
 	private String user_id;
+	private String user_name;
 	
 	/**
 	 * 发布一篇博客
@@ -106,7 +110,7 @@ public class BlogAction extends ActionSupport implements SessionAware{
 	/**
 	 * 修改一篇博客
 	 */
-	public String modifyBlog(){
+	public String modifyBlog_old(){
 		boolean result = CoreDao.updateByHql("update BlogEntity set content='"+content.replaceAll("~~~", "#")+"' where user_id="+user_id+" and type=0");
 		System.out.println();
 		if(!result){
@@ -115,6 +119,63 @@ public class BlogAction extends ActionSupport implements SessionAware{
 		}
 		return "modifyBlog";
 	}
+	
+	
+	/**
+	 * 修改一篇博客_现用
+	 * @return
+	 */
+	public String modifyBlog(){
+		System.out.println("blog_id="+this.blog_id);
+		//若blog_id为空，则说明修改简历
+		if(blog_id==null || blog_id.equals("")){
+			boolean result = true;
+			
+			//查询该user_id是否已有简历
+			int size = CoreDao.queryListByHql("from BlogEntity where user_id="+user_id+" and type=0").size();
+			
+			//若已存在，则修改
+			if(size==1){
+				result = CoreDao.updateByHql("update BlogEntity set content='"+content.replaceAll("~~~", "#")+"' where user_id="+user_id+" and type=0");
+			}
+			
+			//若不存在，则插入
+			else{
+				BlogEntity entity = new BlogEntity();
+				entity.setContent(content.replaceAll("~~~", "#"));
+				entity.setUser_id(Long.parseLong(user_id));
+				entity.setDescription("个人简历");
+				entity.setState(0);
+				entity.setTitle(user_name+"的个人简历");
+				entity.setName(user_name);
+				int result2 = CoreDao.save(entity);
+				if(result2==-1)
+					result = false;
+			}
+			if(!result){
+				this.result = "no";
+				this.reason = "Hibernate更新异常!";
+			}
+			return "modifyBlog";
+		}
+		
+		//若blog_id不为空，则说明修改博客内容
+		else{
+
+			boolean result = true;
+			
+			//若已存在，则修改
+			result = CoreDao.updateByHql("update BlogEntity set content='"+content.replaceAll("~~~", "#")+"' where id="+blog_id);
+			
+			if(!result){
+				this.result = "no";
+				this.reason = "Hibernate更新异常!";
+			}
+			return "modifyBlog";
+		
+		}
+	}
+	
 	public String getContent() {
 		return content;
 	}
@@ -210,6 +271,14 @@ public class BlogAction extends ActionSupport implements SessionAware{
 
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 	
 	

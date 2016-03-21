@@ -1,4 +1,8 @@
 document.write("<script language=javascript src='js/common.js'></script>");
+document.write("<script language=javascript src='js/verifyAdmin.js'></script>");
+
+//var content = "";
+//var title = "";
 $(document).ready(function(){
 	$.get("blog/blogAction!getBlog",
 			  
@@ -30,7 +34,11 @@ $(document).ready(function(){
 //			    			alert(localStorage.getItem("type")+","+val.type);
 //			    			alert((localStorage.getItem("type")==val.type && val.state!=2) || (localStorage.getItem("type")==val.type && val.state==2 && localStorage.getItem("id")==val.user_id));
 			    			if((val.state!=2) || (val.state==2 && localStorage.getItem("id")==val.user_id)){
-			    				html = html + '<div class="jumbotron"><table><tr><td width="90%"><a href="#" onclick="clickBlogTitle('+val.id+')"><h3 style="text-align:left;margin-top:-20px;">'+val.title+'</h3></a></td><td><button type="button" class="btn btn-info" onclick="clickDelete('+val.id+')">删除</button></td></tr><tr><td><p style="text-align:left;font-size:16px;">'+val.description+'</p></td></tr><tr><td><p style="text-align:left;margin-bottom:-20px;font-size:14px;color:#949494;">'+val.time+'&nbsp;&nbsp;&nbsp;&nbsp;'+val.name+'</p></td></tr></table></div>';
+			    				html = html + '<div class="jumbotron"><table><tr><td width="90%"><a href="#" onclick="clickBlogTitle('+val.id+')"><h3 style="text-align:left;margin-top:-20px;">'+val.title+'</h3></a></td><td><button type="button" class="btn btn-info" onclick="clickDelete('+val.id+')">删除</button><button type="button" class="btn btn-info" onclick="clickModify('+val.id+')">修改</button></td></tr><tr><td><p style="text-align:left;font-size:16px;">'+val.description+'</p></td></tr><tr><td><p style="text-align:left;margin-bottom:-20px;font-size:14px;color:#949494;">'+val.time+'&nbsp;&nbsp;&nbsp;&nbsp;'+val.name+'</p></td></tr></table></div>';
+//			    				alert("val.id="+val.id);
+//			    				alert('"clickModify("'+val.id+'","'+val.content+'")"');
+//			    				content = val.content;
+//			    				title = val.title;
 			    				$("#blogList").text("");
 			    				$("#blogList").append(html);
 			    			}
@@ -70,4 +78,15 @@ function clickDelete(id){
 			    }
 			    
 		});
+}
+
+
+
+/**
+ * 点击“修改”信息
+ */
+function clickModify(id){
+	localStorage.setItem("modify_blog_id",id);
+//	alert(localStorage.getItem("modify_blog_id"));
+	window.location.href="postBlog.html";
 }

@@ -1,4 +1,5 @@
 document.write("<script language=javascript src='js/common.js'></script>");
+document.write("<script language=javascript src='js/verifyAdmin.js'></script>");
 $(document).ready(function(){
 	
 	//隐藏大图
