@@ -37,7 +37,7 @@ public class InitFilterDispatcher extends StrutsPrepareAndExecuteFilter implemen
         System.out.println("InitFilterDispatcher已执行……");
         
         //定时线程1:每隔1.5时获取一次blogList
-        getBlogList(5400000);
+        getBlogList(300000);
         
     }    
 	

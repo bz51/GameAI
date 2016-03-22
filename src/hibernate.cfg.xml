@@ -18,7 +18,8 @@
         <property name="hibernate.connection.password">bz220382</property>
        <!-- <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bsb?characterEncoding=utf-8</property> -->
        <!-- <property name="hibernate.connection.url">jdbc:oracle:thin:@180.209.64.47:1521:wangjidb</property> -->
-        <property name="hibernate.connection.url">jdbc:mysql://115.28.217.42:3306/ai?characterEncoding=utf-8</property>
+        <!-- <property name="hibernate.connection.url">jdbc:mysql://180.209.64.47:3306/ai?characterEncoding=utf-8</property> -->
+         <property name="hibernate.connection.url">jdbc:mysql://115.28.217.42:3306/ai?characterEncoding=utf-8</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">true</property><!-- 配置显示sql语句 -->
   		<property name="format_sql">true</property><!-- 让输出的sql语句格式化 -->
