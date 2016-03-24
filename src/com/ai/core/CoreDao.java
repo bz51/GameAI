@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.PropertyAccessException;
 import org.hibernate.Session;
+import org.hibernate.cfg.Configuration;
 
 import com.qq.connect.utils.json.JSONException;
 import com.qq.connect.utils.json.JSONObject;
@@ -139,6 +140,40 @@ public class CoreDao {
 		}finally{
 			HibernateSessionFactory.closeSession();
 		}
+		return entity;
+	}
+	public static <T> T queryUniqueById_old(long id,String entityName){
+		if(id<=0 || entityName==null || "".equals(entityName)){
+			return null;
+		}
+		
+		T entity;
+		Session session = null;
+//		try {
+//			Session session = HibernateSessionFactory.getSession();
+			session = HibernateTool.getSessionFactory().openSession();
+			session.beginTransaction();
+			String hql = "from "+entityName+" where id=:idString";
+			entity = (T) session.createQuery(hql)
+					.setInteger("idString", (int)id)
+					.uniqueResult();
+			session.getTransaction().commit();
+//		} catch (PropertyAccessException e) {
+//			//id一般为long，但BSB中id都是int，所以当传入的id为long时就抛出PropertyAccessException异常，此时是恤将id改为int即可
+//			session = HibernateTool.getSessionFactory().openSession();
+//			session.beginTransaction();
+//			String hql = "from "+entityName+" where id=:idString";
+//			entity = (T) session.createQuery(hql)
+//					.setLong("idString", id)
+//					.uniqueResult();
+//			session.getTransaction().commit();
+////		} catch (HibernateException e) {
+//			entity = null;
+//			e.printStackTrace();
+//			session.getTransaction().rollback();
+//		}finally{
+			session.close();
+//		}
 		return entity;
 	}
 
