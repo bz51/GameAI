@@ -95,7 +95,7 @@ function clickBlogTitle(id){
 	//将blog_id存入本地
 	localStorage.setItem("blog_id",id);
 	//跳转至博客详情页
-	window.location.href="blogDetail.html";
+	window.location.href="blogDetail.html?blog_id="+id;
 }
 
 function clickDelete(id){

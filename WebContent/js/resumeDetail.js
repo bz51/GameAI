@@ -26,7 +26,11 @@ $(document).ready(function(){
 		$("#modifyResumeBtn").show();
 	}
 	
-	var url = "blog/blogAction!getResume?user_id="+localStorage.getItem("look_user_id");
+	var user_id = GetQueryString("user_id");
+	if(user_id==null || user_id==""){
+		user_id = localStorage.getItem("look_user_id");
+	}
+	var url = "blog/blogAction!getResume?user_id="+user_id;
 	//发送请求
 	$.get(url,
 		  

@@ -1,7 +1,11 @@
 document.write("<script language=javascript src='js/common.js'></script>");
 $(document).ready(function(){
-//		alert("3:"+localStorage.getItem("look_user_id"));
-		$.get("blog/blogAction!getBlog?blog_id="+localStorage.getItem("blog_id"),
+//	alert(GetQueryString("blog_id"));
+		var blod_id = GetQueryString("blog_id");
+		if(blod_id==null || blod_id==""){
+			blod_id = localStorage.getItem("blog_id");
+		}
+		$.get("blog/blogAction!getBlog?blog_id="+blod_id,
 				  
 				  function(data,status){
 //					alert(data);

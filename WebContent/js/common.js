@@ -49,7 +49,7 @@
 		if(user_id==null || user_id==""){
 //			alert("查看自己的简历,id="+user_id);
 			localStorage.setItem("look_user_id",localStorage.getItem("id"));
-			window.location.href="resumeDetail.html";
+			window.location.href="resumeDetail.html?user_id="+localStorage.getItem("id");
 		}
 		//跳转到首页
 		else if(user_id=='index'){
@@ -58,7 +58,7 @@
 		//看别人的简历
 		else{
 			localStorage.setItem("look_user_id",user_id);
-			window.location.href="resumeDetail.html";
+			window.location.href="resumeDetail.html?user_id="+user_id;
 		}
 		
 	}
@@ -88,4 +88,19 @@
 		localStorage.setItem("modify_content","");
 		//跳转至发布博客页面
 		window.location.href="postBlog.html";
+	}
+	
+	
+	
+	/**
+	 * 获取url上参数的值
+	 * @param name
+	 * @returns
+	 */
+	function GetQueryString(name)
+	{
+//		alert(name);
+	     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	     var r = window.location.search.substr(1).match(reg);
+	     if(r!=null)return  unescape(r[2]); return null;
 	}
