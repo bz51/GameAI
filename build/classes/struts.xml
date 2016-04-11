@@ -127,4 +127,24 @@
 		</action>
     </package>
     
+	<!-- 评论模块 -->
+    <package name="comment" namespace="/comment" extends="default">
+		<action name="commentAction" class="com.ai.comment.CommentAction">
+		
+			<!-- 获取某一篇博客的所有评论 -->
+			<result name="getCommentsByBlogId" type="json">
+    			<param name="includeProperties">reason,result,commentList.*</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		
+			<!-- 评论博客 -->
+			<result name="postComment" type="json">
+    			<param name="includeProperties">reason,result</param>
+    			<param name="contentType">text/html</param> 
+    		</result>
+		
+		
+		</action>
+    </package>
+    
 </struts>

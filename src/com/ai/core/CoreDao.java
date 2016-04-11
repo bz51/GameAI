@@ -91,17 +91,17 @@ public class CoreDao {
 		}
 
 		List<T> list = new ArrayList<T>();
-		try {
+//		try {
 			Session session = HibernateSessionFactory.getSession();
 			session.beginTransaction();
 			list = session.createQuery(hql).list();
 			session.getTransaction().commit();
-		} catch (HibernateException e) {
-			list = null;
-			e.printStackTrace();
-		}finally{
+//		} catch (HibernateException e) {
+//			list = null;
+//			e.printStackTrace();
+//		}finally{
 			HibernateSessionFactory.closeSession();
-		}
+//		}
 		return list;
 	}
 
